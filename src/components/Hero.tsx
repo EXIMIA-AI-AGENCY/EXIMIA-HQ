@@ -125,8 +125,6 @@ export function Hero() {
 }
 
 const menuItems = [
-  { name: 'Features', href: '#link' },
-  { name: 'Solution', href: '#link' },
   { name: 'About', href: '/about' },
 ]
 

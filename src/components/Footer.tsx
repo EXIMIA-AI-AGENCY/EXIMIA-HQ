@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="relative py-12 px-6 border-t border-slate-800/50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -32,25 +32,6 @@ export function Footer() {
               </a>
               <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
                 EXIMIA AI PLATFORM
-              </a>
-            </div>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <div className="text-slate-400 text-sm mb-4 tracking-wide">Recursos</div>
-            <div className="space-y-2">
-              <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
-                Documentación Técnica
-              </a>
-              <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
-                API Reference
-              </a>
-              <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
-                Estado del Sistema
-              </a>
-              <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
-                Soporte Empresarial
               </a>
             </div>
           </div>
