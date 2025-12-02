@@ -68,7 +68,7 @@ export function Hero() {
               className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6"
             >
               <motion.div
-                className="mb-6 flex justify-center"
+                className="mb-2 flex justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
