@@ -2,8 +2,9 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Menu, X, ChevronRight, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight } from 'lucide-react'
 import { useScroll, motion, useTransform } from 'motion/react'
+import eximiaLogo from '../assets/eximia-logo.png'
 
 // Simple Link component replacement for Vite
 const Link = ({ href, children, className, ...props }: any) => (
@@ -66,14 +67,18 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6"
             >
-              <motion.span
-                className="block text-white mb-2 font-medium"
+              <motion.div
+                className="mb-6 flex justify-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                EXIMIA
-              </motion.span>
+                <img
+                  src={eximiaLogo}
+                  alt="EXIMIA"
+                  className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+                />
+              </motion.div>
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -208,17 +213,11 @@ const HeroHeader = () => {
 const Logo = ({ className }: { className?: string }) => {
   return (
     <div className={cn("flex items-center gap-2", className)}>
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-8 w-8 text-white"
-      >
-        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span className="text-white font-medium text-xl tracking-wide">EXIMIA</span>
+      <img
+        src={eximiaLogo}
+        alt="EXIMIA"
+        className="h-8 w-auto object-contain"
+      />
     </div>
   )
 }
