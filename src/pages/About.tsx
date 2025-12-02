@@ -5,10 +5,10 @@ import { Footer } from '../components/Footer';
 
 export function About() {
     const milestones = [
-        { year: '2019', title: 'Fundación', description: 'Alan Rodriguez funda EXIMIA en San Juan, Puerto Rico' },
-        { year: '2020', title: 'Primera Plataforma', description: 'Lanzamiento de EXIMIA GOV para análisis gubernamental' },
-        { year: '2022', title: 'Expansión', description: 'EXIMIA AGENCY revoluciona el marketing con IA' },
-        { year: '2024', title: 'Ecosistema Completo', description: 'EXIMIA AI Platform unifica todas las soluciones' },
+        { year: '2022', title: 'Fundación', description: 'Alan Rodriguez funda EXIMIA en San Juan, Puerto Rico' },
+        { year: '2022', title: 'EXIMIA AGENCY', description: 'Lanzamiento de plataforma de marketing con IA' },
+        { year: '2023', title: 'EXIMIA AI Platform', description: 'Plataforma empresarial de agentes de IA especializados' },
+        { year: '2024', title: 'EXIMIA GOV', description: 'Sistema de análisis de inteligencia gubernamental' },
     ];
 
     const values = [
@@ -119,27 +119,27 @@ export function About() {
                         >
                             <div className="space-y-8 text-white/70 leading-relaxed">
                                 <p className="text-xl text-white/80 font-light">
-                                    En 2019, mientras el mundo apenas comenzaba a comprender el potencial de la inteligencia artificial, un joven desarrollador en San Juan, Puerto Rico, veía algo diferente.
+                                    En 2022, mientras las empresas luchaban por adaptarse al boom del marketing digital post-pandemia, un joven desarrollador en San Juan, Puerto Rico, veía una oportunidad única.
                                 </p>
 
                                 <p>
-                                    Alan Rodriguez, con apenas 21 años y experiencia autodidacta en desarrollo de software e inteligencia artificial, identificó una brecha crítica: las organizaciones tenían acceso a tecnología avanzada, pero carecían de sistemas que realmente entendieran sus necesidades específicas. La IA existente era genérica, inflexible, y requería equipos masivos para implementarse.
+                                    Alan Rodriguez, con 23 años y experiencia autodidacta en desarrollo de software e inteligencia artificial, identificó una brecha crítica: las agencias de marketing gastaban fortunas en contenido que podía ser generado y optimizado por IA. La tecnología existía, pero nadie la había hecho accesible para el mercado masivo.
                                 </p>
 
                                 <p>
-                                    Desde su apartamento en San Juan, Alan comenzó a construir lo que eventualmente se convertiría en EXIMIA. No como una empresa de software más, sino como un ecosistema completo de inteligencia artificial especializada. Su visión era clara: democratizar el acceso a IA de nivel empresarial, haciéndola tan accesible como contratar a un empleado, pero infinitamente más escalable.
+                                    Desde su apartamento en San Juan, Alan lanzó EXIMIA AGENCY, una plataforma que automatizaba la creación y distribución de contenido a escala. No como una herramienta más, sino como un sistema completo que entendía audiencias, optimizaba campañas, y generaba ROI medible. El éxito fue inmediato.
                                 </p>
 
                                 <p>
-                                    El primer producto, EXIMIA GOV, nació de conversaciones con funcionarios gubernamentales frustrados por sistemas legacy que no podían comunicarse entre sí. Alan diseñó una plataforma que no solo integraba datos de múltiples fuentes, sino que los analizaba con la precisión requerida para decisiones de seguridad nacional. El éxito fue inmediato.
+                                    El siguiente paso fue natural: si la IA podía revolucionar el marketing, podía transformar cualquier industria. En 2023, nació EXIMIA AI Platform, consolidando todo el conocimiento en una plataforma empresarial donde cualquier organización podía desplegar agentes de IA especializados en minutos.
                                 </p>
 
                                 <p>
-                                    Lo que siguió fue una expansión natural. EXIMIA AGENCY surgió al ver cómo las agencias de marketing gastaban fortunas en contenido que podía ser generado y optimizado por IA. EXIMIA AI Platform consolidó todo el conocimiento adquirido en una plataforma empresarial que cualquier organización podía usar.
+                                    En 2024, EXIMIA dio su salto más ambicioso: EXIMIA GOV. Conversaciones con funcionarios gubernamentales revelaron una necesidad crítica de sistemas de inteligencia que pudieran integrar y analizar datos clasificados con precisión de seguridad nacional. Alan diseñó una plataforma que no solo cumplía con los estándares más exigentes, sino que los superaba.
                                 </p>
 
                                 <p className="text-xl text-white/80 font-light">
-                                    Hoy, a sus 26 años, Alan lidera un equipo distribuido globalmente desde Puerto Rico, demostrando que la innovación tecnológica de clase mundial puede originarse desde cualquier lugar con la visión correcta.
+                                    Hoy, a sus 26 años, Alan lidera un ecosistema completo de soluciones de IA desde Puerto Rico, demostrando que la innovación tecnológica de clase mundial puede originarse desde cualquier lugar con la visión correcta.
                                 </p>
                             </div>
                         </motion.div>
@@ -190,7 +190,7 @@ export function About() {
                                         <div className="text-xs text-white/50 uppercase tracking-wider">Años</div>
                                     </div>
                                     <div>
-                                        <div className="text-3xl font-light text-white mb-1">5+</div>
+                                        <div className="text-3xl font-light text-white mb-1">3+</div>
                                         <div className="text-xs text-white/50 uppercase tracking-wider">Años Exp</div>
                                     </div>
                                     <div>
