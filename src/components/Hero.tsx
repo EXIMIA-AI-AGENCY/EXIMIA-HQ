@@ -181,20 +181,66 @@ const HeroHeader = () => {
           </div>
         </div>
         {/* Mobile Menu */}
-        <div className={cn("fixed inset-0 z-10 bg-black/95 backdrop-blur-3xl pt-24 px-6 transition-transform duration-300 lg:hidden", menuState ? "translate-x-0" : "translate-x-full")}>
-          <ul className="space-y-6 text-xl font-light text-center">
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <Link
-                  href={item.href}
-                  className="text-white/80 hover:text-white block py-2"
-                  onClick={() => setMenuState(false)}>
-                  <span>{item.name}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <motion.div
+          initial={false}
+          animate={menuState ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 z-10 bg-black/98 backdrop-blur-2xl lg:hidden"
+        >
+          <div className="flex flex-col h-full pt-24 px-8">
+            {/* Menu Items */}
+            <nav className="flex-1 flex items-center justify-center">
+              <ul className="space-y-8 w-full max-w-sm">
+                {menuItems.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={false}
+                    animate={menuState ? {
+                      opacity: 1,
+                      x: 0,
+                      transition: { delay: index * 0.1 + 0.2 }
+                    } : {
+                      opacity: 0,
+                      x: 20
+                    }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="group block py-3 text-center"
+                      onClick={() => setMenuState(false)}
+                    >
+                      <span className="text-2xl font-light text-white/70 group-hover:text-white transition-colors duration-200">
+                        {item.name}
+                      </span>
+                      <div className="h-px bg-white/0 group-hover:bg-white/20 transition-all duration-300 mt-2" />
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </nav>
+
+            {/* Bottom Section */}
+            <motion.div
+              initial={false}
+              animate={menuState ? {
+                opacity: 1,
+                y: 0,
+                transition: { delay: 0.5 }
+              } : {
+                opacity: 0,
+                y: 20
+              }}
+              className="pb-12 text-center"
+            >
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                <span className="text-white/40 text-xs tracking-widest uppercase">
+                  Ecosistema de IA
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
       </nav>
     </header>
   )
