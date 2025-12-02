@@ -45,7 +45,7 @@ export function Hero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="inline-flex items-center gap-3 mb-12 px-5 py-2 border border-white/10 backdrop-blur-sm relative rounded-full bg-white/5"
+            className="inline-flex items-center gap-3 mb-12 mt-20 px-5 py-2 border border-white/10 backdrop-blur-sm relative rounded-full bg-white/5"
           >
             <div className="relative flex items-center gap-3">
               <motion.div
@@ -76,7 +76,7 @@ export function Hero() {
                 <img
                   src={eximiaLogo}
                   alt="EXIMIA"
-                  className="h-24 md:h-32 lg:h-40 w-auto object-contain"
+                  className="h-32 md:h-48 lg:h-64 w-auto object-contain"
                 />
               </motion.div>
               <motion.span
