@@ -119,11 +119,11 @@ export function About() {
                         >
                             <div className="space-y-8 text-white/70 leading-relaxed">
                                 <p className="text-xl text-white/80 font-light">
-                                    En 2019, mientras el mundo apenas comenzaba a comprender el potencial de la inteligencia artificial, un joven ingeniero en San Juan, Puerto Rico, veía algo diferente.
+                                    En 2019, mientras el mundo apenas comenzaba a comprender el potencial de la inteligencia artificial, un joven desarrollador en San Juan, Puerto Rico, veía algo diferente.
                                 </p>
 
                                 <p>
-                                    Alan Rodriguez, con apenas 21 años y una licenciatura en Computer Science, identificó una brecha crítica: las organizaciones tenían acceso a tecnología avanzada, pero carecían de sistemas que realmente entendieran sus necesidades específicas. La IA existente era genérica, inflexible, y requería equipos masivos para implementarse.
+                                    Alan Rodriguez, con apenas 21 años y experiencia autodidacta en desarrollo de software e inteligencia artificial, identificó una brecha crítica: las organizaciones tenían acceso a tecnología avanzada, pero carecían de sistemas que realmente entendieran sus necesidades específicas. La IA existente era genérica, inflexible, y requería equipos masivos para implementarse.
                                 </p>
 
                                 <p>
@@ -167,12 +167,12 @@ export function About() {
                                 </h2>
 
                                 <p className="text-xl text-emerald-400 font-light mb-6">
-                                    Ingeniero, Emprendedor, Visionario
+                                    Desarrollador, Emprendedor, Visionario
                                 </p>
 
                                 <div className="space-y-4 text-white/60 leading-relaxed">
                                     <p>
-                                        Licenciado en Computer Science con especialización en Machine Learning e Inteligencia Artificial. A los 26 años, Alan ha construido uno de los ecosistemas de IA más completos del mercado.
+                                        Especializado en Machine Learning e Inteligencia Artificial con experiencia autodidacta. A los 26 años, Alan ha construido uno de los ecosistemas de IA más completos del mercado.
                                     </p>
 
                                     <p>
