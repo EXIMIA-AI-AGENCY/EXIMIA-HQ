@@ -206,7 +206,7 @@ const Logo = ({ className }: { className?: string }) => {
       <img
         src={eximiaLogo}
         alt="EXIMIA"
-        className="h-10 w-auto object-contain"
+        className="h-6 w-auto object-contain"
       />
     </div>
   )
