@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Zap, Layers, ArrowRight, Check } from 'lucide-react';
+import { Shield, Zap, Layers, ArrowRight, Check, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
@@ -111,6 +111,22 @@ export function Products() {
                 />
                 <div className="absolute inset-0 bg-black/60" />
             </div>
+
+            {/* Back Button */}
+            <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="fixed top-6 left-6 z-50"
+            >
+                <Link
+                    to="/"
+                    className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 backdrop-blur-sm rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-all duration-300 group"
+                >
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-sm font-light">Volver</span>
+                </Link>
+            </motion.div>
 
             {/* Content */}
             <div className="relative z-10">
