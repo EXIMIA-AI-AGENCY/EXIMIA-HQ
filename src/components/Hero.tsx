@@ -76,7 +76,7 @@ export function Hero() {
                 <img
                   src={eximiaLogo}
                   alt="EXIMIA"
-                  className="h-32 md:h-48 lg:h-64 w-auto object-contain"
+                  className="h-16 md:h-20 lg:h-24 w-auto object-contain"
                 />
               </motion.div>
               <motion.span
