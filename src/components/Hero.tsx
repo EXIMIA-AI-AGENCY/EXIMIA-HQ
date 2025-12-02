@@ -2,7 +2,7 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { useScroll, motion, useTransform } from 'motion/react'
 import eximiaLogo from '../assets/eximia-logo.png'
 
@@ -107,24 +107,14 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20"
+            className="flex items-center justify-center mb-20"
           >
             <Button
               asChild
               size="lg"
-              className="h-14 rounded-full pl-8 pr-6 text-base bg-white text-black hover:bg-white/90 transition-all duration-300">
+              className="h-14 rounded-full px-8 text-base bg-white text-black hover:bg-white/90 transition-all duration-300">
               <Link href="#link">
-                <span className="text-nowrap font-medium">Iniciar Sesión</span>
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-14 rounded-full px-8 text-base border-white/20 text-white hover:bg-white/10 hover:text-white transition-all duration-300 backdrop-blur-sm">
-              <Link href="#link">
-                <span className="text-nowrap font-light">Explorar Plataforma</span>
+                <span className="text-nowrap font-medium">Más Información</span>
               </Link>
             </Button>
           </motion.div>
