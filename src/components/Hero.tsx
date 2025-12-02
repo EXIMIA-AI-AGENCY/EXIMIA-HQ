@@ -1,0 +1,224 @@
+'use client'
+import React from 'react'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { Menu, X, ChevronRight, ArrowRight } from 'lucide-react'
+import { useScroll, motion, useTransform } from 'motion/react'
+
+// Simple Link component replacement for Vite
+const Link = ({ href, children, className, ...props }: any) => (
+  <a href={href} className={className} {...props}>
+    {children}
+  </a>
+);
+
+export function Hero() {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 100]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+
+  return (
+    <>
+      <HeroHeader />
+      <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover opacity-60"
+            src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477"
+          />
+          <div className="absolute inset-0 bg-black/40" /> {/* Overlay for text readability */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+        </div>
+
+        <motion.div
+          style={{ y, opacity }}
+          className="relative z-10 max-w-7xl mx-auto px-6 text-center"
+        >
+          {/* Top badge - minimal */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="inline-flex items-center gap-3 mb-12 px-5 py-2 border border-white/10 backdrop-blur-sm relative rounded-full bg-white/5"
+          >
+            <div className="relative flex items-center gap-3">
+              <motion.div
+                className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <span className="text-white/80 tracking-[0.2em] text-xs font-light uppercase">
+                Ecosistema de Inteligencia Artificial
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Main Title - clean and bold */}
+          <div className="mb-10">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6"
+            >
+              <motion.span
+                className="block text-white mb-2 font-medium"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                EXIMIA
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="block text-white/90 text-5xl md:text-6xl lg:text-7xl font-extralight"
+              >
+                Innovación Sin Límites
+              </motion.span>
+            </motion.h1>
+          </div>
+
+          {/* Subtitle - refined */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
+          >
+            Un conglomerado tecnológico impulsando la próxima generación de servicios digitales.
+            <br className="hidden md:block" />
+            Transformando industrias con inteligencia artificial avanzada.
+          </motion.p>
+
+          {/* CTA Buttons - minimal and elegant */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="h-14 rounded-full pl-8 pr-6 text-base bg-white text-black hover:bg-white/90 transition-all duration-300">
+              <Link href="#link">
+                <span className="text-nowrap font-medium">Iniciar Sesión</span>
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="h-14 rounded-full px-8 text-base border-white/20 text-white hover:bg-white/10 hover:text-white transition-all duration-300 backdrop-blur-sm">
+              <Link href="#link">
+                <span className="text-nowrap font-light">Explorar Plataforma</span>
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
+      </main>
+    </>
+  )
+}
+
+const menuItems = [
+  { name: 'Features', href: '#link' },
+  { name: 'Solution', href: '#link' },
+  { name: 'Pricing', href: '#link' },
+  { name: 'About', href: '#link' },
+]
+
+const HeroHeader = () => {
+  const [menuState, setMenuState] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false)
+  const { scrollYProgress } = useScroll()
+
+  React.useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (latest) => {
+      setScrolled(latest > 0.05)
+    })
+    return () => unsubscribe()
+  }, [scrollYProgress])
+
+  return (
+    <header>
+      <nav
+        data-state={menuState && 'active'}
+        className="group fixed z-20 w-full pt-4">
+        <div className={cn('mx-auto max-w-7xl rounded-full px-6 transition-all duration-300 lg:px-12', scrolled ? 'bg-black/50 backdrop-blur-xl border border-white/10 py-2' : 'py-4')}>
+          <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              aria-label="home"
+              className="flex items-center space-x-2">
+              <Logo />
+            </Link>
+
+            <div className="hidden lg:block">
+              <ul className="flex gap-8 text-sm font-light">
+                {menuItems.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      href={item.href}
+                      className="text-white/70 hover:text-white transition-colors duration-200">
+                      <span>{item.name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button
+              onClick={() => setMenuState(!menuState)}
+              aria-label={menuState == true ? 'Close Menu' : 'Open Menu'}
+              className="relative z-20 block cursor-pointer lg:hidden text-white">
+              <Menu className="group-data-[state=active]:hidden size-6" />
+              <X className="hidden group-data-[state=active]:block size-6" />
+            </button>
+          </div>
+        </div>
+        {/* Mobile Menu */}
+        <div className={cn("fixed inset-0 z-10 bg-black/95 backdrop-blur-3xl pt-24 px-6 transition-transform duration-300 lg:hidden", menuState ? "translate-x-0" : "translate-x-full")}>
+          <ul className="space-y-6 text-xl font-light text-center">
+            {menuItems.map((item, index) => (
+              <li key={index}>
+                <Link
+                  href={item.href}
+                  className="text-white/80 hover:text-white block py-2"
+                  onClick={() => setMenuState(false)}>
+                  <span>{item.name}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
+    </header>
+  )
+}
+
+const Logo = ({ className }: { className?: string }) => {
+  return (
+    <div className={cn("flex items-center gap-2", className)}>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-8 w-8 text-white"
+      >
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <span className="text-white font-medium text-xl tracking-wide">EXIMIA</span>
+    </div>
+  )
+}
