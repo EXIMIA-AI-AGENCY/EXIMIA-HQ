@@ -4,6 +4,7 @@ import { ProductGrid } from './components/ProductGrid';
 import { MetricsBar } from './components/MetricsBar';
 import { Footer } from './components/Footer';
 import { Products } from './pages/Products';
+import { About } from './pages/About';
 
 function HomePage() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }
