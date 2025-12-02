@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import eximiaLogo from '../assets/eximia-logo.png';
 
 export function Footer() {
   return (
@@ -8,8 +9,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-purple-500 rounded" />
-              <span className="text-white tracking-wider">EXIMIA</span>
+              <img src={eximiaLogo} alt="EXIMIA" className="h-8 w-auto object-contain" />
             </div>
             <p className="text-slate-500 text-sm leading-relaxed">
               Infraestructura de inteligencia artificial para operaciones críticas a escala global.
