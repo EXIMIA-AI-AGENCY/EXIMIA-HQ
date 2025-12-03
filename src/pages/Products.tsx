@@ -1,10 +1,34 @@
 import { motion } from 'motion/react';
-import { Shield, Zap, Layers, ArrowRight, Check, ArrowLeft } from 'lucide-react';
+import { Shield, Zap, Layers, ArrowRight, Check, ArrowLeft, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
+import { SEO } from '../components/SEO';
+
 export function Products() {
     const products = [
+        {
+            id: 'accounting',
+            name: 'EXIMIA ACCOUNTING',
+            tagline: 'Todo-en-Uno para tu Firma',
+            description: 'Digitaliza, centraliza y automatiza tu práctica contable con seguridad empresarial. Herramientas diseñadas específicamente para firmas contables modernas.',
+            features: [
+                'Gestión Avanzada de Clientes y Archivo',
+                'Sistema de Permisos (RBAC) Granular',
+                'Gestión de Procesos y Workflows',
+                'Sistema de Documentos Inteligente con IA',
+                'Búsqueda Global Unificada',
+                'Agente AI Conversacional Contextual',
+            ],
+            benefits: [
+                'Reduce tiempo administrativo en 40%',
+                'Seguridad de Grado Bancario',
+                'Automatización de flujos de trabajo',
+                'Auditoría Completa de Acciones',
+            ],
+            color: 'emerald',
+            Icon: FileText,
+        },
         {
             id: 'gov',
             name: 'EXIMIA GOV',
@@ -92,10 +116,21 @@ export function Products() {
             bg: 'bg-indigo-500/10',
             gradient: 'from-indigo-500/20',
         },
+        emerald: {
+            text: 'text-emerald-400',
+            border: 'border-emerald-500/30',
+            bg: 'bg-emerald-500/10',
+            gradient: 'from-emerald-500/20',
+        },
     };
 
     return (
         <div className="min-h-screen bg-slate-950">
+            <SEO
+                title="Nuestros Productos"
+                description="Descubre nuestro ecosistema de soluciones de IA: EXIMIA GOV, AGENCY y AI PLATFORM. Tecnología avanzada para gobierno y empresa."
+                url="https://www.eximiahq.com/products"
+            />
             {/* Background */}
             <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black pointer-events-none" />
 
@@ -151,9 +186,9 @@ export function Products() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6"
                         >
-                            Tres Pilares.
+                            Ecosistema de Innovación.
                             <br />
-                            <span className="text-white/70 font-extralight">Una Infraestructura.</span>
+                            <span className="text-white/70 font-extralight">Infraestructura del Futuro.</span>
                         </motion.h1>
 
                         <motion.p
@@ -281,13 +316,22 @@ export function Products() {
                                                     viewport={{ once: true }}
                                                     transition={{ delay: index * 0.2 + 0.8 }}
                                                 >
-                                                    <Link
-                                                        to="/"
-                                                        className={`inline-flex items-center gap-2 px-6 py-3 border ${colors.border} ${colors.bg} ${colors.text} hover:bg-white/10 transition-all duration-300 group`}
-                                                    >
-                                                        <span className="font-light">Más Información</span>
-                                                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                                    </Link>
+                                                    {product.id === 'accounting' ? (
+                                                        <button
+                                                            disabled
+                                                            className={`inline-flex items-center gap-2 px-6 py-3 border ${colors.border} ${colors.bg} ${colors.text} opacity-70 cursor-not-allowed`}
+                                                        >
+                                                            <span className="font-light">Coming Soon</span>
+                                                        </button>
+                                                    ) : (
+                                                        <Link
+                                                            to="/"
+                                                            className={`inline-flex items-center gap-2 px-6 py-3 border ${colors.border} ${colors.bg} ${colors.text} hover:bg-white/10 transition-all duration-300 group`}
+                                                        >
+                                                            <span className="font-light">Más Información</span>
+                                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                        </Link>
+                                                    )}
                                                 </motion.div>
                                             </motion.div>
                                         </div>

@@ -1,9 +1,35 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Shield, Zap, Layers, ArrowUpRight, TrendingUp, Lock, Sparkles } from 'lucide-react';
+import { Shield, Zap, Layers, ArrowUpRight, TrendingUp, Lock, Sparkles, FileText } from 'lucide-react';
 import { useState } from 'react';
 
 export function ProductGrid() {
   const products = [
+    {
+      id: 'accounting',
+      name: 'EXIMIA ACCOUNTING',
+      category: 'FINTECH & AUTOMATION',
+      description: 'Digitaliza, centraliza y automatiza tu práctica contable. Seguridad empresarial y flujos de trabajo inteligentes.',
+      features: [
+        'Gestión Avanzada de Clientes',
+        'Sistema de Permisos (RBAC)',
+        'IA Documental (GPT-5)',
+        'Búsqueda Global Unificada',
+      ],
+      metrics: {
+        security: 'AES-256',
+        compliance: 'SOC2',
+        automation: '85%',
+      },
+      stats: [
+        { label: 'Tiempo Ahorrado', value: '40%', trend: '+40%' },
+        { label: 'ROI Estimado', value: '3.5x', trend: '+15%' },
+        { label: 'Errores', value: '0%', trend: '-100%' },
+      ],
+      color: 'emerald',
+      Icon: FileText,
+      url: '#',
+      comingSoon: true,
+    },
     {
       id: 'gov',
       name: 'EXIMIA GOV',
@@ -97,7 +123,7 @@ export function ProductGrid() {
             <span className="text-slate-500 tracking-[0.3em] text-sm">PRODUCTOS</span>
           </div>
           <h2 className="text-4xl md:text-5xl text-white tracking-tight mb-4">
-            Tres Pilares. Una Infraestructura.
+            Ecosistema de Innovación.
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl">
             Soluciones especializadas construidas sobre la misma base tecnológica.
@@ -105,7 +131,7 @@ export function ProductGrid() {
         </motion.div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
           {products.map((product, index) => (
             <ProductCard key={product.id} product={product} index={index} />
           ))}
@@ -162,6 +188,14 @@ function ProductCard({ product, index }: { product: any; index: number }) {
       text: 'text-indigo-500',
       dot: 'bg-indigo-500',
     },
+    emerald: {
+      border: 'border-emerald-500/30',
+      borderGlow: 'shadow-[0_0_30px_rgba(16,185,129,0.3)]',
+      bg: 'bg-emerald-500/5',
+      gradient: 'from-emerald-500/20 via-transparent to-transparent',
+      text: 'text-emerald-500',
+      dot: 'bg-emerald-500',
+    },
   };
 
   const colors = colorMap[product.color as keyof typeof colorMap];
@@ -180,9 +214,8 @@ function ProductCard({ product, index }: { product: any; index: number }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
-      className={`group relative border ${colors.border} bg-slate-900/50 backdrop-blur-sm transition-all duration-500 ${
-        isHovered ? colors.borderGlow : ''
-      }`}
+      className={`group relative border ${colors.border} bg-slate-900/50 backdrop-blur-sm transition-all duration-500 ${isHovered ? colors.borderGlow : ''
+        }`}
     >
       {/* Animated gradient background */}
       <motion.div
@@ -301,24 +334,35 @@ function ProductCard({ product, index }: { product: any; index: number }) {
         </div>
 
         {/* CTA */}
-        <motion.a
-          href={product.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex items-center justify-between p-4 border ${colors.border} ${colors.bg} rounded group-hover:${colors.text} transition-all duration-300`}
-          whileHover={{ x: 4 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          <span className="text-sm tracking-wide text-slate-400 group-hover:text-white transition-colors">
-            Acceder al Sistema
-          </span>
-          <motion.div
-            animate={isHovered ? { x: [0, 5, 0] } : {}}
-            transition={{ duration: 1, repeat: Infinity }}
+        {product.comingSoon ? (
+          <div
+            className={`flex items-center justify-between p-4 border ${colors.border} ${colors.bg} rounded opacity-70 cursor-not-allowed`}
           >
-            <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-white transition-colors" />
-          </motion.div>
-        </motion.a>
+            <span className="text-sm tracking-wide text-slate-400">
+              Coming Soon
+            </span>
+            <Lock className="w-4 h-4 text-slate-600" />
+          </div>
+        ) : (
+          <motion.a
+            href={product.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center justify-between p-4 border ${colors.border} ${colors.bg} rounded group-hover:${colors.text} transition-all duration-300`}
+            whileHover={{ x: 4 }}
+            transition={{ type: 'spring', stiffness: 300 }}
+          >
+            <span className="text-sm tracking-wide text-slate-400 group-hover:text-white transition-colors">
+              Acceder al Sistema
+            </span>
+            <motion.div
+              animate={isHovered ? { x: [0, 5, 0] } : {}}
+              transition={{ duration: 1, repeat: Infinity }}
+            >
+              <ArrowUpRight className="w-4 h-4 text-slate-600 group-hover:text-white transition-colors" />
+            </motion.div>
+          </motion.a>
+        )}
 
         {/* Security badge for GOV */}
         {product.id === 'gov' && (

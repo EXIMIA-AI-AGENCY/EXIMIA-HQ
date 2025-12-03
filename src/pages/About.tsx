@@ -3,6 +3,8 @@ import { ArrowLeft, Sparkles, Target, Zap, Globe, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
+import { SEO } from '../components/SEO';
+
 export function About() {
     const milestones = [
         { year: '2022', title: 'Fundación', description: 'Alan Rodriguez funda EXIMIA en San Juan, Puerto Rico' },
@@ -36,6 +38,11 @@ export function About() {
 
     return (
         <div className="min-h-screen bg-slate-950">
+            <SEO
+                title="Nuestra Historia"
+                description="Conoce cómo EXIMIA está construyendo el futuro desde el Caribe. Una visión audaz nacida en Puerto Rico transformando industrias globales."
+                url="https://www.eximiahq.com/about"
+            />
             {/* Background */}
             <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black pointer-events-none" />
 
