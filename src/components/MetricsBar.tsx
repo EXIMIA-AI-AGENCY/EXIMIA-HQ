@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 
 export function MetricsBar() {
   const stats = [
-    { label: 'Agencias Gubernamentales', value: '47+' },
+
     { label: 'Marcas Globales', value: '230+' },
     { label: 'Petabytes Procesados', value: '12.4' },
     { label: 'Países Activos', value: '89' },
