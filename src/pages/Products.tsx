@@ -54,21 +54,21 @@ export function Products() {
         {
             id: 'agency',
             name: 'EXIMIA',
-            tagline: 'Automatización de Marketing con IA',
-            description: 'Plataforma de marketing autónoma que genera y distribuye contenido a escala. Campañas optimizadas por IA que se adaptan en tiempo real.',
+            tagline: 'AI Solutions & Software Development',
+            description: 'Soluciones de inteligencia artificial personalizadas y desarrollo de software empresarial. Transformamos tu negocio con tecnología de vanguardia y agentes de IA autónomos.',
             features: [
-                'Generación de contenido multicanal automatizada',
-                'Optimización predictiva de campañas con ML',
-                'Segmentación de audiencias en tiempo real',
-                'ROI tracking automatizado y analytics avanzados',
-                'A/B testing continuo y optimización dinámica',
-                'Integración con todas las plataformas principales',
+                'Desarrollo de agentes de IA personalizados',
+                'Automatización de procesos empresariales con IA',
+                'Desarrollo de software a medida',
+                'Integración de APIs y sistemas legacy',
+                'Chatbots y asistentes virtuales inteligentes',
+                'Consultoría tecnológica y transformación digital',
             ],
             benefits: [
-                'Incrementa conversiones hasta 340%',
-                'Reduce costos de producción en 70%',
-                'Escala contenido sin límites',
-                'ROI promedio de 6.8x',
+                'Reduce costos operativos hasta 60%',
+                'Automatiza tareas repetitivas 24/7',
+                'Escala tu negocio sin límites',
+                'ROI promedio de 5x en 6 meses',
             ],
             color: 'purple',
             Icon: Zap,
@@ -239,7 +239,7 @@ export function Products() {
                                             >
                                                 <div className={`inline-block px-3 py-1 ${colors.bg} ${colors.border} border mb-4`}>
                                                     <span className={`text-xs tracking-wider ${colors.text} uppercase`}>
-                                                        {product.id === 'gov' ? 'Gobierno' : product.id === 'agency' ? 'Marketing' : 'Enterprise'}
+                                                        {product.id === 'gov' ? 'Gobierno' : product.id === 'agency' ? 'AI Solutions' : 'Enterprise'}
                                                     </span>
                                                 </div>
 
