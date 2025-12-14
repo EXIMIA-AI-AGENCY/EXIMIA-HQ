@@ -113,17 +113,20 @@ export function Products() {
             {/* Background */}
             <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-black pointer-events-none" />
 
-            {/* Video Background */}
+            {/* Video Background - DNA 4K */}
             <div className="fixed inset-0 z-0">
                 <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover opacity-20"
-                    src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477"
+                    className="w-full h-full object-cover opacity-50 scale-110"
+                    src="/DNA 4K Video 25fps.mp4"
                 />
-                <div className="absolute inset-0 bg-black/60" />
+                {/* Color overlay with cyan/violet tint */}
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/40 via-black/60 to-violet-950/40" />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-black/40" />
             </div>
 
             {/* Back Button */}

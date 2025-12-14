@@ -58,7 +58,7 @@ export function Hero() {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="text-white/80 tracking-[0.2em] text-xs font-light uppercase">
-                Ecosistema de Inteligencia Artificial
+                AI Solutions and Software Development
               </span>
             </div>
           </motion.div>
@@ -236,7 +236,7 @@ const HeroHeader = () => {
               <div className="flex items-center justify-center gap-2 mb-4">
                 <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
                 <span className="text-white/40 text-xs tracking-widest uppercase">
-                  Ecosistema de IA
+                  AI Solutions
                 </span>
               </div>
             </motion.div>
