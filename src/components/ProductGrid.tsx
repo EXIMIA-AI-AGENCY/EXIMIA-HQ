@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Shield, Zap, ArrowUpRight, TrendingUp, Lock, Sparkles, FileText } from 'lucide-react';
+import { Shield, Brain, ArrowUpRight, TrendingUp, Lock, Sparkles, FileText } from 'lucide-react';
 import { useState } from 'react';
 
 export function ProductGrid() {
@@ -26,8 +26,8 @@ export function ProductGrid() {
         { label: 'ROI Promedio', value: '5x', trend: '+80%' },
       ],
       color: 'purple',
-      Icon: Zap,
-      url: 'https://eximiahq.com',
+      Icon: Brain,
+      url: 'https://www.eximia.agency/',
     },
     {
       id: 'gov',
