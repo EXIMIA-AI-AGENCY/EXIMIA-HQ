@@ -263,227 +263,49 @@ export function Products() {
                                             className={`relative ${isEven ? '' : 'md:col-start-2'}`}
                                         >
                                             <motion.div
-                                                className={`relative p-20 border ${colors.border} ${colors.bg} backdrop-blur-sm overflow-hidden group/box`}
+                                                className={`relative aspect-square border ${colors.border} bg-gradient-to-br from-slate-900/80 to-black/90 backdrop-blur-xl overflow-hidden`}
                                                 whileHover={{
-                                                    borderColor: "rgba(255,255,255,0.4)",
-                                                    boxShadow: `0 0 80px ${product.color === 'purple' ? 'rgba(139,92,246,0.4)' : product.color === 'cyan' ? 'rgba(6,182,212,0.4)' : 'rgba(16,185,129,0.4)'}`,
-                                                    transition: { duration: 0.5 }
+                                                    borderColor: "rgba(255,255,255,0.3)",
+                                                    transition: { duration: 0.3 }
                                                 }}
                                             >
-                                                {/* Hexagonal grid pattern */}
-                                                <div className="absolute inset-0 opacity-10">
-                                                    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                                                        <defs>
-                                                            <pattern id={`hexagons-${product.id}`} width="50" height="43.4" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)">
-                                                                <polygon points="25,0 50,14.4 50,43.4 25,57.7 0,43.4 0,14.4" fill="none" stroke="currentColor" strokeWidth="0.5" className={colors.text} />
-                                                            </pattern>
-                                                        </defs>
-                                                        <rect width="100%" height="100%" fill={`url(#hexagons-${product.id})`} />
-                                                    </svg>
-                                                </div>
-
-                                                {/* Animated gradient overlay */}
+                                                {/* Subtle gradient background that breathes */}
                                                 <motion.div
                                                     className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} via-transparent to-transparent`}
-                                                    animate={{
-                                                        opacity: [0.2, 0.5, 0.2],
-                                                        backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
-                                                    }}
-                                                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                                                />
-
-                                                {/* Orbiting particles */}
-                                                {[0, 1, 2].map((i) => (
-                                                    <motion.div
-                                                        key={`orbit-${i}`}
-                                                        className="absolute top-1/2 left-1/2 w-full h-full"
-                                                        style={{ transformOrigin: "center" }}
-                                                        animate={{ rotate: 360 }}
-                                                        transition={{
-                                                            duration: 15 + i * 5,
-                                                            repeat: Infinity,
-                                                            ease: "linear",
-                                                        }}
-                                                    >
-                                                        <motion.div
-                                                            className={`absolute w-3 h-3 ${colors.text.replace('text-', 'bg-')} rounded-full`}
-                                                            style={{
-                                                                top: `${10 + i * 15}%`,
-                                                                left: "50%",
-                                                                boxShadow: `0 0 20px ${product.color === 'purple' ? 'rgba(139,92,246,0.8)' : product.color === 'cyan' ? 'rgba(6,182,212,0.8)' : 'rgba(16,185,129,0.8)'}`
-                                                            }}
-                                                            animate={{
-                                                                scale: [1, 1.5, 1],
-                                                                opacity: [0.5, 1, 0.5]
-                                                            }}
-                                                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                                                        />
-                                                    </motion.div>
-                                                ))}
-
-                                                {/* Data connection lines */}
-                                                <svg className="absolute inset-0 w-full h-full opacity-30" style={{ zIndex: 5 }}>
-                                                    <motion.line
-                                                        x1="0%" y1="0%" x2="100%" y2="100%"
-                                                        stroke="currentColor"
-                                                        strokeWidth="1"
-                                                        className={colors.text}
-                                                        initial={{ pathLength: 0, opacity: 0 }}
-                                                        animate={{ pathLength: [0, 1, 0], opacity: [0, 0.5, 0] }}
-                                                        transition={{ duration: 4, repeat: Infinity, delay: 0 }}
-                                                    />
-                                                    <motion.line
-                                                        x1="100%" y1="0%" x2="0%" y2="100%"
-                                                        stroke="currentColor"
-                                                        strokeWidth="1"
-                                                        className={colors.text}
-                                                        initial={{ pathLength: 0, opacity: 0 }}
-                                                        animate={{ pathLength: [0, 1, 0], opacity: [0, 0.5, 0] }}
-                                                        transition={{ duration: 4, repeat: Infinity, delay: 2 }}
-                                                    />
-                                                </svg>
-
-                                                {/* Pulsing energy rings - enhanced */}
-                                                {[0, 1, 2].map((i) => (
-                                                    <motion.div
-                                                        key={`ring-${i}`}
-                                                        className={`absolute border ${colors.border} rounded-full`}
-                                                        style={{
-                                                            inset: `${20 + i * 15}%`,
-                                                        }}
-                                                        animate={{
-                                                            scale: [1, 1.4, 1],
-                                                            opacity: [0.4, 0, 0.4],
-                                                            rotate: [0, 180, 360],
-                                                        }}
-                                                        transition={{
-                                                            duration: 4 + i,
-                                                            repeat: Infinity,
-                                                            ease: "easeOut",
-                                                            delay: i * 0.8,
-                                                        }}
-                                                    />
-                                                ))}
-
-                                                {/* Central icon container */}
-                                                <motion.div
-                                                    className="relative z-20 flex items-center justify-center"
-                                                    animate={{
-                                                        rotateY: [0, 20, 0, -20, 0],
-                                                        rotateX: [0, 10, 0, -10, 0],
-                                                    }}
-                                                    transition={{
-                                                        duration: 12,
-                                                        repeat: Infinity,
-                                                        ease: "easeInOut",
-                                                    }}
-                                                    style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-                                                >
-                                                    {/* Icon with glitch effect on hover */}
-                                                    <motion.div
-                                                        className="relative"
-                                                        whileHover={{
-                                                            scale: 1.2,
-                                                            transition: { type: "spring", stiffness: 400, damping: 10 }
-                                                        }}
-                                                    >
-                                                        {/* Shadow copies for depth */}
-                                                        <product.Icon
-                                                            className={`absolute w-40 h-40 ${colors.text} opacity-20 blur-sm`}
-                                                            strokeWidth={0.5}
-                                                            style={{ transform: "translate(4px, 4px)" }}
-                                                        />
-                                                        <motion.div
-                                                            animate={{
-                                                                x: [0, -2, 2, 0],
-                                                                opacity: [1, 0.8, 1]
-                                                            }}
-                                                            transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 5 }}
-                                                        >
-                                                            <product.Icon className={`w-40 h-40 ${colors.text}`} strokeWidth={0.5} />
-                                                        </motion.div>
-                                                    </motion.div>
-                                                </motion.div>
-
-                                                {/* Multi-layer glow effect */}
-                                                <motion.div
-                                                    className={`absolute inset-0 ${colors.text.replace('text-', 'bg-')} blur-3xl`}
-                                                    animate={{
-                                                        scale: [0.6, 1, 0.6],
-                                                        opacity: [0.05, 0.2, 0.05],
-                                                    }}
+                                                    animate={{ opacity: [0.1, 0.3, 0.1] }}
                                                     transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                                                 />
-                                                <motion.div
-                                                    className={`absolute inset-4 ${colors.text.replace('text-', 'bg-')} blur-2xl rounded-full`}
-                                                    animate={{
-                                                        scale: [0.8, 1.2, 0.8],
-                                                        opacity: [0.1, 0.3, 0.1],
-                                                    }}
-                                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                                />
 
-                                                {/* Floating data nodes */}
-                                                {[...Array(8)].map((_, i) => (
+                                                {/* Centered icon with gentle float */}
+                                                <div className="absolute inset-0 flex items-center justify-center">
                                                     <motion.div
-                                                        key={`node-${i}`}
-                                                        className={`absolute w-1.5 h-1.5 ${colors.text.replace('text-', 'bg-')} rounded-full`}
-                                                        style={{
-                                                            top: `${15 + (i % 4) * 20}%`,
-                                                            left: `${10 + Math.floor(i / 4) * 70 + (i % 2) * 15}%`,
-                                                        }}
-                                                        animate={{
-                                                            y: [0, -25 + Math.random() * 50, 0],
-                                                            x: [0, -20 + Math.random() * 40, 0],
-                                                            opacity: [0.2, 1, 0.2],
-                                                            scale: [0.5, 1.5, 0.5],
-                                                        }}
-                                                        transition={{
-                                                            duration: 3 + Math.random() * 4,
-                                                            repeat: Infinity,
-                                                            ease: "easeInOut",
-                                                            delay: i * 0.4,
-                                                        }}
-                                                    />
-                                                ))}
+                                                        animate={{ y: [0, -8, 0] }}
+                                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                                        whileHover={{ scale: 1.1 }}
+                                                    >
+                                                        <product.Icon className={`w-28 h-28 ${colors.text}`} strokeWidth={0.8} />
+                                                    </motion.div>
+                                                </div>
 
-                                                {/* Animated corner brackets */}
-                                                <motion.div className="absolute top-3 left-3 w-8 h-8 border-l-2 border-t-2 border-white/20"
-                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
-                                                    transition={{ duration: 2, repeat: Infinity }}
-                                                />
-                                                <motion.div className="absolute top-3 right-3 w-8 h-8 border-r-2 border-t-2 border-white/20"
-                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
-                                                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-                                                />
-                                                <motion.div className="absolute bottom-3 left-3 w-8 h-8 border-l-2 border-b-2 border-white/20"
-                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
-                                                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-                                                />
-                                                <motion.div className="absolute bottom-3 right-3 w-8 h-8 border-r-2 border-b-2 border-white/20"
-                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
-                                                    transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
-                                                />
-
-                                                {/* Horizontal scanning line */}
+                                                {/* Soft glow behind icon */}
                                                 <motion.div
-                                                    className={`absolute left-0 right-0 h-px ${colors.text.replace('text-', 'bg-')}`}
-                                                    style={{ boxShadow: `0 0 10px ${product.color === 'purple' ? 'rgba(139,92,246,0.8)' : product.color === 'cyan' ? 'rgba(6,182,212,0.8)' : 'rgba(16,185,129,0.8)'}` }}
-                                                    animate={{ top: ["0%", "100%"] }}
-                                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 ${colors.text.replace('text-', 'bg-')} rounded-full blur-3xl`}
+                                                    animate={{ opacity: [0.15, 0.3, 0.15], scale: [0.9, 1.1, 0.9] }}
+                                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                                                 />
 
-                                                {/* Vertical scanning line */}
-                                                <motion.div
-                                                    className={`absolute top-0 bottom-0 w-px ${colors.text.replace('text-', 'bg-')}`}
-                                                    style={{ boxShadow: `0 0 10px ${product.color === 'purple' ? 'rgba(139,92,246,0.8)' : product.color === 'cyan' ? 'rgba(6,182,212,0.8)' : 'rgba(16,185,129,0.8)'}` }}
-                                                    animate={{ left: ["0%", "100%"] }}
-                                                    transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 1.5 }}
-                                                />
+                                                {/* Corner accent lines */}
+                                                <div className={`absolute top-0 left-0 w-12 h-px ${colors.text.replace('text-', 'bg-')} opacity-40`} />
+                                                <div className={`absolute top-0 left-0 h-12 w-px ${colors.text.replace('text-', 'bg-')} opacity-40`} />
+                                                <div className={`absolute bottom-0 right-0 w-12 h-px ${colors.text.replace('text-', 'bg-')} opacity-40`} />
+                                                <div className={`absolute bottom-0 right-0 h-12 w-px ${colors.text.replace('text-', 'bg-')} opacity-40`} />
 
-                                                {/* Hover overlay effect */}
+                                                {/* Hover glow effect */}
                                                 <motion.div
-                                                    className="absolute inset-0 bg-white/0 group-hover/box:bg-white/5 transition-colors duration-500"
+                                                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                                    style={{
+                                                        background: `radial-gradient(circle at center, ${product.color === 'purple' ? 'rgba(139,92,246,0.15)' : product.color === 'cyan' ? 'rgba(6,182,212,0.15)' : 'rgba(16,185,129,0.15)'} 0%, transparent 70%)`
+                                                    }}
                                                 />
                                             </motion.div>
                                         </motion.div>
