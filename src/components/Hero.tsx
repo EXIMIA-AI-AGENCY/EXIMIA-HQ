@@ -22,18 +22,22 @@ export function Hero() {
     <>
       <HeroHeader />
       <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-        {/* Video Background */}
+        {/* Video Background - DNA 4K */}
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover opacity-60"
-            src="/dna-video.mp4"
+            className="w-full h-full object-cover opacity-70 scale-110"
+            src="/DNA 4K Video 25fps.mp4"
           />
-          <div className="absolute inset-0 bg-black/40" /> {/* Overlay for text readability */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+          {/* Color overlay with cyan/violet tint for brand consistency */}
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/40 via-black/50 to-violet-950/40" />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-black/30" />
+          {/* Vignette effect */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.7)_70%,rgba(0,0,0,0.9)_100%)]" />
         </div>
 
         <motion.div
