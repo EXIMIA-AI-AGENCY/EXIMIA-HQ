@@ -263,70 +263,139 @@ export function Products() {
                                             className={`relative ${isEven ? '' : 'md:col-start-2'}`}
                                         >
                                             <motion.div
-                                                className={`relative p-12 border ${colors.border} ${colors.bg} backdrop-blur-sm overflow-hidden`}
+                                                className={`relative p-16 border ${colors.border} ${colors.bg} backdrop-blur-sm overflow-hidden`}
                                                 whileHover={{
-                                                    borderColor: "rgba(255,255,255,0.2)",
-                                                    transition: { duration: 0.3 }
+                                                    borderColor: "rgba(255,255,255,0.3)",
+                                                    boxShadow: "0 0 60px rgba(139,92,246,0.3)",
+                                                    transition: { duration: 0.4 }
                                                 }}
                                             >
-                                                <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} via-transparent to-transparent opacity-50`} />
+                                                {/* Animated grid background */}
+                                                <div className="absolute inset-0 opacity-20">
+                                                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(139,92,246,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(139,92,246,0.1)_1px,transparent_1px)] bg-[size:30px_30px]" />
+                                                </div>
 
-                                                {/* Icon with rotation animation */}
+                                                {/* Gradient overlay */}
                                                 <motion.div
-                                                    animate={{
-                                                        rotateY: [0, 10, 0, -10, 0],
-                                                    }}
-                                                    transition={{
-                                                        duration: 8,
-                                                        repeat: Infinity,
-                                                        ease: "easeInOut",
-                                                    }}
-                                                    style={{ transformStyle: "preserve-3d" }}
-                                                >
-                                                    <product.Icon className={`w-32 h-32 ${colors.text} relative z-10`} strokeWidth={0.5} />
-                                                </motion.div>
-
-                                                {/* Animated glow ring */}
-                                                <motion.div
-                                                    animate={{
-                                                        scale: [1, 1.3, 1],
-                                                        opacity: [0.2, 0.5, 0.2],
-                                                    }}
-                                                    transition={{
-                                                        duration: 4,
-                                                        repeat: Infinity,
-                                                        ease: "easeInOut",
-                                                    }}
-                                                    className={`absolute inset-0 border-2 ${colors.border} blur-xl`}
+                                                    className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} via-transparent to-transparent`}
+                                                    animate={{ opacity: [0.3, 0.6, 0.3] }}
+                                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                                                 />
 
-                                                {/* Floating particles */}
+                                                {/* Pulsing energy rings */}
                                                 <motion.div
+                                                    className={`absolute inset-8 border ${colors.border} rounded-full`}
                                                     animate={{
-                                                        y: [0, -20, 0],
-                                                        x: [0, 10, 0],
-                                                        opacity: [0.3, 0.7, 0.3],
+                                                        scale: [1, 1.2, 1],
+                                                        opacity: [0.3, 0, 0.3],
+                                                    }}
+                                                    transition={{
+                                                        duration: 3,
+                                                        repeat: Infinity,
+                                                        ease: "easeOut",
+                                                    }}
+                                                />
+                                                <motion.div
+                                                    className={`absolute inset-12 border ${colors.border} rounded-full`}
+                                                    animate={{
+                                                        scale: [1, 1.3, 1],
+                                                        opacity: [0.2, 0, 0.2],
+                                                    }}
+                                                    transition={{
+                                                        duration: 3,
+                                                        repeat: Infinity,
+                                                        ease: "easeOut",
+                                                        delay: 0.5,
+                                                    }}
+                                                />
+
+                                                {/* Central icon with enhanced animations */}
+                                                <motion.div
+                                                    className="relative z-20 flex items-center justify-center"
+                                                    animate={{
+                                                        rotateY: [0, 15, 0, -15, 0],
+                                                        rotateX: [0, 5, 0, -5, 0],
+                                                    }}
+                                                    transition={{
+                                                        duration: 10,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut",
+                                                    }}
+                                                    style={{ transformStyle: "preserve-3d", perspective: 1000 }}
+                                                >
+                                                    <motion.div
+                                                        whileHover={{ scale: 1.15, rotate: 5 }}
+                                                        transition={{ type: "spring", stiffness: 300 }}
+                                                    >
+                                                        <product.Icon className={`w-36 h-36 ${colors.text}`} strokeWidth={0.5} />
+                                                    </motion.div>
+                                                </motion.div>
+
+                                                {/* Animated glow behind icon */}
+                                                <motion.div
+                                                    className={`absolute inset-0 ${colors.text.replace('text-', 'bg-')} blur-3xl`}
+                                                    animate={{
+                                                        scale: [0.8, 1.1, 0.8],
+                                                        opacity: [0.1, 0.25, 0.1],
                                                     }}
                                                     transition={{
                                                         duration: 5,
                                                         repeat: Infinity,
                                                         ease: "easeInOut",
                                                     }}
-                                                    className={`absolute top-4 right-4 w-2 h-2 ${colors.text.replace('text-', 'bg-')} rounded-full blur-sm`}
+                                                />
+
+                                                {/* Multiple floating particles */}
+                                                {[...Array(6)].map((_, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        animate={{
+                                                            y: [0, -30 + Math.random() * 20, 0],
+                                                            x: [0, -15 + Math.random() * 30, 0],
+                                                            opacity: [0.2, 0.8, 0.2],
+                                                            scale: [1, 1.5, 1],
+                                                        }}
+                                                        transition={{
+                                                            duration: 4 + Math.random() * 3,
+                                                            repeat: Infinity,
+                                                            ease: "easeInOut",
+                                                            delay: i * 0.5,
+                                                        }}
+                                                        className={`absolute w-2 h-2 ${colors.text.replace('text-', 'bg-')} rounded-full blur-sm`}
+                                                        style={{
+                                                            top: `${20 + Math.random() * 60}%`,
+                                                            left: `${10 + Math.random() * 80}%`,
+                                                        }}
+                                                    />
+                                                ))}
+
+                                                {/* Corner accents */}
+                                                <motion.div
+                                                    className={`absolute top-0 left-0 w-16 h-px ${colors.text.replace('text-', 'bg-')}`}
+                                                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
+                                                    transition={{ duration: 3, repeat: Infinity, delay: 0 }}
                                                 />
                                                 <motion.div
-                                                    animate={{
-                                                        y: [0, 15, 0],
-                                                        x: [0, -10, 0],
-                                                        opacity: [0.2, 0.6, 0.2],
-                                                    }}
-                                                    transition={{
-                                                        duration: 6,
-                                                        repeat: Infinity,
-                                                        ease: "easeInOut",
-                                                        delay: 1,
-                                                    }}
-                                                    className={`absolute bottom-6 left-6 w-3 h-3 ${colors.text.replace('text-', 'bg-')} rounded-full blur-sm`}
+                                                    className={`absolute top-0 left-0 h-16 w-px ${colors.text.replace('text-', 'bg-')}`}
+                                                    animate={{ scaleY: [0, 1, 0], opacity: [0, 1, 0] }}
+                                                    transition={{ duration: 3, repeat: Infinity, delay: 0.2 }}
+                                                />
+                                                <motion.div
+                                                    className={`absolute bottom-0 right-0 w-16 h-px ${colors.text.replace('text-', 'bg-')}`}
+                                                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
+                                                    transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+                                                />
+                                                <motion.div
+                                                    className={`absolute bottom-0 right-0 h-16 w-px ${colors.text.replace('text-', 'bg-')}`}
+                                                    animate={{ scaleY: [0, 1, 0], opacity: [0, 1, 0] }}
+                                                    transition={{ duration: 3, repeat: Infinity, delay: 1.7 }}
+                                                />
+
+                                                {/* Scanning line effect */}
+                                                <motion.div
+                                                    className={`absolute left-0 right-0 h-px ${colors.text.replace('text-', 'bg-')} opacity-50`}
+                                                    animate={{ top: ["0%", "100%", "0%"] }}
+                                                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
                                                 />
                                             </motion.div>
                                         </motion.div>
