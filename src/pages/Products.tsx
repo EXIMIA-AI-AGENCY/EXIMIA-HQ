@@ -151,36 +151,78 @@ export function Products() {
                 <section className="pt-32 pb-20 px-6">
                     <div className="max-w-4xl mx-auto text-center">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
+                            initial={{ opacity: 0, y: -30, scale: 0.9 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={{
+                                duration: 0.8,
+                                type: "spring",
+                                stiffness: 100,
+                                damping: 15
+                            }}
                             className="inline-flex items-center gap-2 mb-8 px-4 py-2 border border-white/10 backdrop-blur-sm rounded-full bg-white/5"
                         >
-                            <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                            <motion.div
+                                className="w-1.5 h-1.5 bg-emerald-400 rounded-full"
+                                animate={{
+                                    scale: [1, 1.5, 1],
+                                    opacity: [0.5, 1, 0.5]
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            />
                             <span className="text-white/80 tracking-[0.2em] text-xs font-light uppercase">
                                 Nuestros Productos
                             </span>
                         </motion.div>
 
                         <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 50 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            transition={{
+                                duration: 1,
+                                delay: 0.2,
+                                type: "spring",
+                                stiffness: 80
+                            }}
                             className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-6"
                         >
-                            Ecosistema de Innovación.
+                            <motion.span
+                                initial={{ opacity: 0, x: -30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.3, duration: 0.8 }}
+                            >
+                                Ecosistema de Innovación.
+                            </motion.span>
                             <br />
-                            <span className="text-white/70 font-extralight">Infraestructura del Futuro.</span>
+                            <motion.span
+                                className="text-white/70 font-extralight"
+                                initial={{ opacity: 0, x: 30 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                            >
+                                Infraestructura del Futuro.
+                            </motion.span>
                         </motion.h1>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
+                            initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
                             className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed font-light"
                         >
                             Soluciones especializadas construidas sobre la misma base tecnológica de IA avanzada.
                         </motion.p>
+
+                        {/* Animated line separator */}
+                        <motion.div
+                            initial={{ scaleX: 0 }}
+                            animate={{ scaleX: 1 }}
+                            transition={{ duration: 1.2, delay: 0.8, ease: "easeOut" }}
+                            className="w-32 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mx-auto mt-12"
+                        />
                     </div>
                 </section>
 
@@ -194,102 +236,232 @@ export function Products() {
                             return (
                                 <motion.div
                                     key={product.id}
-                                    initial={{ opacity: 0, y: 60 }}
+                                    initial={{ opacity: 0, y: 80 }}
                                     whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{
+                                        duration: 1,
+                                        type: "spring",
+                                        stiffness: 50,
+                                        damping: 20
+                                    }}
                                     className="relative"
                                 >
                                     <div className={`grid md:grid-cols-2 gap-12 items-center ${isEven ? '' : 'md:grid-flow-dense'}`}>
                                         {/* Icon/Visual Side */}
                                         <motion.div
-                                            initial={{ opacity: 0, scale: 0.8 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
+                                            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                                            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
                                             viewport={{ once: true }}
-                                            transition={{ duration: 0.8, delay: index * 0.2 + 0.3 }}
+                                            transition={{
+                                                duration: 0.8,
+                                                delay: 0.2,
+                                                type: "spring",
+                                                stiffness: 100
+                                            }}
+                                            whileHover={{ scale: 1.02 }}
                                             className={`relative ${isEven ? '' : 'md:col-start-2'}`}
                                         >
-                                            <div className={`relative p-12 border ${colors.border} ${colors.bg} backdrop-blur-sm`}>
+                                            <motion.div
+                                                className={`relative p-12 border ${colors.border} ${colors.bg} backdrop-blur-sm overflow-hidden`}
+                                                whileHover={{
+                                                    borderColor: "rgba(255,255,255,0.2)",
+                                                    transition: { duration: 0.3 }
+                                                }}
+                                            >
                                                 <div className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} via-transparent to-transparent opacity-50`} />
-                                                <product.Icon className={`w-32 h-32 ${colors.text} relative z-10`} strokeWidth={0.5} />
 
-                                                {/* Animated particles */}
+                                                {/* Icon with rotation animation */}
                                                 <motion.div
                                                     animate={{
-                                                        scale: [1, 1.2, 1],
-                                                        opacity: [0.3, 0.6, 0.3],
+                                                        rotateY: [0, 10, 0, -10, 0],
                                                     }}
                                                     transition={{
-                                                        duration: 3,
+                                                        duration: 8,
                                                         repeat: Infinity,
                                                         ease: "easeInOut",
                                                     }}
-                                                    className={`absolute inset-0 border ${colors.border} blur-xl`}
+                                                    style={{ transformStyle: "preserve-3d" }}
+                                                >
+                                                    <product.Icon className={`w-32 h-32 ${colors.text} relative z-10`} strokeWidth={0.5} />
+                                                </motion.div>
+
+                                                {/* Animated glow ring */}
+                                                <motion.div
+                                                    animate={{
+                                                        scale: [1, 1.3, 1],
+                                                        opacity: [0.2, 0.5, 0.2],
+                                                    }}
+                                                    transition={{
+                                                        duration: 4,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut",
+                                                    }}
+                                                    className={`absolute inset-0 border-2 ${colors.border} blur-xl`}
                                                 />
-                                            </div>
+
+                                                {/* Floating particles */}
+                                                <motion.div
+                                                    animate={{
+                                                        y: [0, -20, 0],
+                                                        x: [0, 10, 0],
+                                                        opacity: [0.3, 0.7, 0.3],
+                                                    }}
+                                                    transition={{
+                                                        duration: 5,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut",
+                                                    }}
+                                                    className={`absolute top-4 right-4 w-2 h-2 ${colors.text.replace('text-', 'bg-')} rounded-full blur-sm`}
+                                                />
+                                                <motion.div
+                                                    animate={{
+                                                        y: [0, 15, 0],
+                                                        x: [0, -10, 0],
+                                                        opacity: [0.2, 0.6, 0.2],
+                                                    }}
+                                                    transition={{
+                                                        duration: 6,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut",
+                                                        delay: 1,
+                                                    }}
+                                                    className={`absolute bottom-6 left-6 w-3 h-3 ${colors.text.replace('text-', 'bg-')} rounded-full blur-sm`}
+                                                />
+                                            </motion.div>
                                         </motion.div>
 
                                         {/* Content Side */}
                                         <div className={isEven ? '' : 'md:col-start-1 md:row-start-1'}>
                                             <motion.div
-                                                initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
+                                                initial={{ opacity: 0, x: isEven ? -50 : 50, filter: "blur(5px)" }}
+                                                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                                                 viewport={{ once: true }}
-                                                transition={{ duration: 0.8, delay: index * 0.2 + 0.2 }}
+                                                transition={{
+                                                    duration: 0.8,
+                                                    delay: 0.3,
+                                                    type: "spring",
+                                                    stiffness: 80
+                                                }}
                                             >
-                                                <div className={`inline-block px-3 py-1 ${colors.bg} ${colors.border} border mb-4`}>
+                                                <motion.div
+                                                    className={`inline-block px-3 py-1 ${colors.bg} ${colors.border} border mb-4`}
+                                                    whileHover={{ scale: 1.05, x: 5 }}
+                                                    transition={{ type: "spring", stiffness: 300 }}
+                                                >
                                                     <span className={`text-xs tracking-wider ${colors.text} uppercase`}>
                                                         {product.id === 'gov' ? 'Gobierno' : product.id === 'agency' ? 'AI Solutions' : 'Enterprise'}
                                                     </span>
-                                                </div>
+                                                </motion.div>
 
-                                                <h2 className="text-4xl md:text-5xl font-light text-white mb-4">
+                                                <motion.h2
+                                                    className="text-4xl md:text-5xl font-light text-white mb-4"
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: 0.4, duration: 0.6 }}
+                                                >
                                                     {product.name}
-                                                </h2>
+                                                </motion.h2>
 
-                                                <p className={`text-xl ${colors.text} font-light mb-6`}>
+                                                <motion.p
+                                                    className={`text-xl ${colors.text} font-light mb-6`}
+                                                    initial={{ opacity: 0, y: 15 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: 0.5, duration: 0.6 }}
+                                                >
                                                     {product.tagline}
-                                                </p>
+                                                </motion.p>
 
-                                                <p className="text-white/60 leading-relaxed mb-8">
+                                                <motion.p
+                                                    className="text-white/60 leading-relaxed mb-8"
+                                                    initial={{ opacity: 0 }}
+                                                    whileInView={{ opacity: 1 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: 0.6, duration: 0.8 }}
+                                                >
                                                     {product.description}
-                                                </p>
+                                                </motion.p>
 
-                                                {/* Features */}
+                                                {/* Features with staggered animation */}
                                                 <div className="space-y-3 mb-8">
                                                     {product.features.map((feature, i) => (
                                                         <motion.div
                                                             key={i}
-                                                            initial={{ opacity: 0, x: -20 }}
+                                                            initial={{ opacity: 0, x: -30 }}
                                                             whileInView={{ opacity: 1, x: 0 }}
                                                             viewport={{ once: true }}
-                                                            transition={{ delay: index * 0.2 + i * 0.1 }}
-                                                            className="flex items-start gap-3"
+                                                            transition={{
+                                                                delay: 0.7 + i * 0.08,
+                                                                type: "spring",
+                                                                stiffness: 100
+                                                            }}
+                                                            whileHover={{ x: 8, transition: { duration: 0.2 } }}
+                                                            className="flex items-start gap-3 cursor-default group"
                                                         >
-                                                            <Check className={`w-5 h-5 ${colors.text} mt-0.5 flex-shrink-0`} strokeWidth={2} />
-                                                            <span className="text-white/70 text-sm">{feature}</span>
+                                                            <motion.div
+                                                                whileHover={{ scale: 1.3, rotate: 360 }}
+                                                                transition={{ duration: 0.3 }}
+                                                            >
+                                                                <Check className={`w-5 h-5 ${colors.text} mt-0.5 flex-shrink-0`} strokeWidth={2} />
+                                                            </motion.div>
+                                                            <span className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-200">{feature}</span>
                                                         </motion.div>
                                                     ))}
                                                 </div>
 
-                                                {/* Benefits */}
-                                                <div className={`p-6 border ${colors.border} ${colors.bg} backdrop-blur-sm mb-8`}>
-                                                    <h3 className="text-white font-light mb-4 text-lg">Beneficios Clave</h3>
-                                                    <div className="grid grid-cols-2 gap-4">
+                                                {/* Benefits with enhanced animation */}
+                                                <motion.div
+                                                    className={`p-6 border ${colors.border} ${colors.bg} backdrop-blur-sm mb-8 overflow-hidden relative`}
+                                                    initial={{ opacity: 0, scale: 0.95 }}
+                                                    whileInView={{ opacity: 1, scale: 1 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: 0.9, duration: 0.5 }}
+                                                    whileHover={{
+                                                        borderColor: "rgba(255,255,255,0.15)",
+                                                        transition: { duration: 0.3 }
+                                                    }}
+                                                >
+                                                    {/* Animated background gradient */}
+                                                    <motion.div
+                                                        className={`absolute inset-0 bg-gradient-to-r ${colors.gradient} via-transparent to-transparent opacity-0`}
+                                                        whileHover={{ opacity: 0.3 }}
+                                                        transition={{ duration: 0.3 }}
+                                                    />
+
+                                                    <h3 className="text-white font-light mb-4 text-lg relative z-10">Beneficios Clave</h3>
+                                                    <div className="grid grid-cols-2 gap-4 relative z-10">
                                                         {product.benefits.map((benefit, i) => (
                                                             <motion.div
                                                                 key={i}
-                                                                initial={{ opacity: 0, scale: 0.9 }}
-                                                                whileInView={{ opacity: 1, scale: 1 }}
+                                                                initial={{ opacity: 0, y: 10 }}
+                                                                whileInView={{ opacity: 1, y: 0 }}
                                                                 viewport={{ once: true }}
-                                                                transition={{ delay: index * 0.2 + 0.5 + i * 0.1 }}
-                                                                className="text-sm text-white/60"
+                                                                transition={{
+                                                                    delay: 1 + i * 0.1,
+                                                                    type: "spring",
+                                                                    stiffness: 100
+                                                                }}
+                                                                whileHover={{
+                                                                    scale: 1.02,
+                                                                    color: "rgba(255,255,255,0.9)",
+                                                                    transition: { duration: 0.2 }
+                                                                }}
+                                                                className="text-sm text-white/60 cursor-default"
                                                             >
-                                                                • {benefit}
+                                                                <motion.span
+                                                                    className={`inline-block ${colors.text} mr-2`}
+                                                                    animate={{ scale: [1, 1.2, 1] }}
+                                                                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                                                                >
+                                                                    •
+                                                                </motion.span>
+                                                                {benefit}
                                                             </motion.div>
                                                         ))}
                                                     </div>
-                                                </div>
+                                                </motion.div>
 
                                                 {/* CTA */}
                                                 <motion.div
