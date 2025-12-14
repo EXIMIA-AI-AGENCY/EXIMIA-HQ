@@ -263,139 +263,227 @@ export function Products() {
                                             className={`relative ${isEven ? '' : 'md:col-start-2'}`}
                                         >
                                             <motion.div
-                                                className={`relative p-16 border ${colors.border} ${colors.bg} backdrop-blur-sm overflow-hidden`}
+                                                className={`relative p-20 border ${colors.border} ${colors.bg} backdrop-blur-sm overflow-hidden group/box`}
                                                 whileHover={{
-                                                    borderColor: "rgba(255,255,255,0.3)",
-                                                    boxShadow: "0 0 60px rgba(139,92,246,0.3)",
-                                                    transition: { duration: 0.4 }
+                                                    borderColor: "rgba(255,255,255,0.4)",
+                                                    boxShadow: `0 0 80px ${product.color === 'purple' ? 'rgba(139,92,246,0.4)' : product.color === 'cyan' ? 'rgba(6,182,212,0.4)' : 'rgba(16,185,129,0.4)'}`,
+                                                    transition: { duration: 0.5 }
                                                 }}
                                             >
-                                                {/* Animated grid background */}
-                                                <div className="absolute inset-0 opacity-20">
-                                                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(139,92,246,0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgba(139,92,246,0.1)_1px,transparent_1px)] bg-[size:30px_30px]" />
+                                                {/* Hexagonal grid pattern */}
+                                                <div className="absolute inset-0 opacity-10">
+                                                    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                                                        <defs>
+                                                            <pattern id={`hexagons-${product.id}`} width="50" height="43.4" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)">
+                                                                <polygon points="25,0 50,14.4 50,43.4 25,57.7 0,43.4 0,14.4" fill="none" stroke="currentColor" strokeWidth="0.5" className={colors.text} />
+                                                            </pattern>
+                                                        </defs>
+                                                        <rect width="100%" height="100%" fill={`url(#hexagons-${product.id})`} />
+                                                    </svg>
                                                 </div>
 
-                                                {/* Gradient overlay */}
+                                                {/* Animated gradient overlay */}
                                                 <motion.div
                                                     className={`absolute inset-0 bg-gradient-to-br ${colors.gradient} via-transparent to-transparent`}
-                                                    animate={{ opacity: [0.3, 0.6, 0.3] }}
-                                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                                    animate={{
+                                                        opacity: [0.2, 0.5, 0.2],
+                                                        backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"]
+                                                    }}
+                                                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                                                 />
 
-                                                {/* Pulsing energy rings */}
-                                                <motion.div
-                                                    className={`absolute inset-8 border ${colors.border} rounded-full`}
-                                                    animate={{
-                                                        scale: [1, 1.2, 1],
-                                                        opacity: [0.3, 0, 0.3],
-                                                    }}
-                                                    transition={{
-                                                        duration: 3,
-                                                        repeat: Infinity,
-                                                        ease: "easeOut",
-                                                    }}
-                                                />
-                                                <motion.div
-                                                    className={`absolute inset-12 border ${colors.border} rounded-full`}
-                                                    animate={{
-                                                        scale: [1, 1.3, 1],
-                                                        opacity: [0.2, 0, 0.2],
-                                                    }}
-                                                    transition={{
-                                                        duration: 3,
-                                                        repeat: Infinity,
-                                                        ease: "easeOut",
-                                                        delay: 0.5,
-                                                    }}
-                                                />
+                                                {/* Orbiting particles */}
+                                                {[0, 1, 2].map((i) => (
+                                                    <motion.div
+                                                        key={`orbit-${i}`}
+                                                        className="absolute top-1/2 left-1/2 w-full h-full"
+                                                        style={{ transformOrigin: "center" }}
+                                                        animate={{ rotate: 360 }}
+                                                        transition={{
+                                                            duration: 15 + i * 5,
+                                                            repeat: Infinity,
+                                                            ease: "linear",
+                                                        }}
+                                                    >
+                                                        <motion.div
+                                                            className={`absolute w-3 h-3 ${colors.text.replace('text-', 'bg-')} rounded-full`}
+                                                            style={{
+                                                                top: `${10 + i * 15}%`,
+                                                                left: "50%",
+                                                                boxShadow: `0 0 20px ${product.color === 'purple' ? 'rgba(139,92,246,0.8)' : product.color === 'cyan' ? 'rgba(6,182,212,0.8)' : 'rgba(16,185,129,0.8)'}`
+                                                            }}
+                                                            animate={{
+                                                                scale: [1, 1.5, 1],
+                                                                opacity: [0.5, 1, 0.5]
+                                                            }}
+                                                            transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                                                        />
+                                                    </motion.div>
+                                                ))}
 
-                                                {/* Central icon with enhanced animations */}
+                                                {/* Data connection lines */}
+                                                <svg className="absolute inset-0 w-full h-full opacity-30" style={{ zIndex: 5 }}>
+                                                    <motion.line
+                                                        x1="0%" y1="0%" x2="100%" y2="100%"
+                                                        stroke="currentColor"
+                                                        strokeWidth="1"
+                                                        className={colors.text}
+                                                        initial={{ pathLength: 0, opacity: 0 }}
+                                                        animate={{ pathLength: [0, 1, 0], opacity: [0, 0.5, 0] }}
+                                                        transition={{ duration: 4, repeat: Infinity, delay: 0 }}
+                                                    />
+                                                    <motion.line
+                                                        x1="100%" y1="0%" x2="0%" y2="100%"
+                                                        stroke="currentColor"
+                                                        strokeWidth="1"
+                                                        className={colors.text}
+                                                        initial={{ pathLength: 0, opacity: 0 }}
+                                                        animate={{ pathLength: [0, 1, 0], opacity: [0, 0.5, 0] }}
+                                                        transition={{ duration: 4, repeat: Infinity, delay: 2 }}
+                                                    />
+                                                </svg>
+
+                                                {/* Pulsing energy rings - enhanced */}
+                                                {[0, 1, 2].map((i) => (
+                                                    <motion.div
+                                                        key={`ring-${i}`}
+                                                        className={`absolute border ${colors.border} rounded-full`}
+                                                        style={{
+                                                            inset: `${20 + i * 15}%`,
+                                                        }}
+                                                        animate={{
+                                                            scale: [1, 1.4, 1],
+                                                            opacity: [0.4, 0, 0.4],
+                                                            rotate: [0, 180, 360],
+                                                        }}
+                                                        transition={{
+                                                            duration: 4 + i,
+                                                            repeat: Infinity,
+                                                            ease: "easeOut",
+                                                            delay: i * 0.8,
+                                                        }}
+                                                    />
+                                                ))}
+
+                                                {/* Central icon container */}
                                                 <motion.div
                                                     className="relative z-20 flex items-center justify-center"
                                                     animate={{
-                                                        rotateY: [0, 15, 0, -15, 0],
-                                                        rotateX: [0, 5, 0, -5, 0],
+                                                        rotateY: [0, 20, 0, -20, 0],
+                                                        rotateX: [0, 10, 0, -10, 0],
                                                     }}
                                                     transition={{
-                                                        duration: 10,
+                                                        duration: 12,
                                                         repeat: Infinity,
                                                         ease: "easeInOut",
                                                     }}
                                                     style={{ transformStyle: "preserve-3d", perspective: 1000 }}
                                                 >
+                                                    {/* Icon with glitch effect on hover */}
                                                     <motion.div
-                                                        whileHover={{ scale: 1.15, rotate: 5 }}
-                                                        transition={{ type: "spring", stiffness: 300 }}
+                                                        className="relative"
+                                                        whileHover={{
+                                                            scale: 1.2,
+                                                            transition: { type: "spring", stiffness: 400, damping: 10 }
+                                                        }}
                                                     >
-                                                        <product.Icon className={`w-36 h-36 ${colors.text}`} strokeWidth={0.5} />
+                                                        {/* Shadow copies for depth */}
+                                                        <product.Icon
+                                                            className={`absolute w-40 h-40 ${colors.text} opacity-20 blur-sm`}
+                                                            strokeWidth={0.5}
+                                                            style={{ transform: "translate(4px, 4px)" }}
+                                                        />
+                                                        <motion.div
+                                                            animate={{
+                                                                x: [0, -2, 2, 0],
+                                                                opacity: [1, 0.8, 1]
+                                                            }}
+                                                            transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 5 }}
+                                                        >
+                                                            <product.Icon className={`w-40 h-40 ${colors.text}`} strokeWidth={0.5} />
+                                                        </motion.div>
                                                     </motion.div>
                                                 </motion.div>
 
-                                                {/* Animated glow behind icon */}
+                                                {/* Multi-layer glow effect */}
                                                 <motion.div
                                                     className={`absolute inset-0 ${colors.text.replace('text-', 'bg-')} blur-3xl`}
                                                     animate={{
-                                                        scale: [0.8, 1.1, 0.8],
-                                                        opacity: [0.1, 0.25, 0.1],
+                                                        scale: [0.6, 1, 0.6],
+                                                        opacity: [0.05, 0.2, 0.05],
                                                     }}
-                                                    transition={{
-                                                        duration: 5,
-                                                        repeat: Infinity,
-                                                        ease: "easeInOut",
+                                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                                />
+                                                <motion.div
+                                                    className={`absolute inset-4 ${colors.text.replace('text-', 'bg-')} blur-2xl rounded-full`}
+                                                    animate={{
+                                                        scale: [0.8, 1.2, 0.8],
+                                                        opacity: [0.1, 0.3, 0.1],
                                                     }}
+                                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                                                 />
 
-                                                {/* Multiple floating particles */}
-                                                {[...Array(6)].map((_, i) => (
+                                                {/* Floating data nodes */}
+                                                {[...Array(8)].map((_, i) => (
                                                     <motion.div
-                                                        key={i}
+                                                        key={`node-${i}`}
+                                                        className={`absolute w-1.5 h-1.5 ${colors.text.replace('text-', 'bg-')} rounded-full`}
+                                                        style={{
+                                                            top: `${15 + (i % 4) * 20}%`,
+                                                            left: `${10 + Math.floor(i / 4) * 70 + (i % 2) * 15}%`,
+                                                        }}
                                                         animate={{
-                                                            y: [0, -30 + Math.random() * 20, 0],
-                                                            x: [0, -15 + Math.random() * 30, 0],
-                                                            opacity: [0.2, 0.8, 0.2],
-                                                            scale: [1, 1.5, 1],
+                                                            y: [0, -25 + Math.random() * 50, 0],
+                                                            x: [0, -20 + Math.random() * 40, 0],
+                                                            opacity: [0.2, 1, 0.2],
+                                                            scale: [0.5, 1.5, 0.5],
                                                         }}
                                                         transition={{
-                                                            duration: 4 + Math.random() * 3,
+                                                            duration: 3 + Math.random() * 4,
                                                             repeat: Infinity,
                                                             ease: "easeInOut",
-                                                            delay: i * 0.5,
-                                                        }}
-                                                        className={`absolute w-2 h-2 ${colors.text.replace('text-', 'bg-')} rounded-full blur-sm`}
-                                                        style={{
-                                                            top: `${20 + Math.random() * 60}%`,
-                                                            left: `${10 + Math.random() * 80}%`,
+                                                            delay: i * 0.4,
                                                         }}
                                                     />
                                                 ))}
 
-                                                {/* Corner accents */}
-                                                <motion.div
-                                                    className={`absolute top-0 left-0 w-16 h-px ${colors.text.replace('text-', 'bg-')}`}
-                                                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
-                                                    transition={{ duration: 3, repeat: Infinity, delay: 0 }}
+                                                {/* Animated corner brackets */}
+                                                <motion.div className="absolute top-3 left-3 w-8 h-8 border-l-2 border-t-2 border-white/20"
+                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
+                                                    transition={{ duration: 2, repeat: Infinity }}
                                                 />
-                                                <motion.div
-                                                    className={`absolute top-0 left-0 h-16 w-px ${colors.text.replace('text-', 'bg-')}`}
-                                                    animate={{ scaleY: [0, 1, 0], opacity: [0, 1, 0] }}
-                                                    transition={{ duration: 3, repeat: Infinity, delay: 0.2 }}
+                                                <motion.div className="absolute top-3 right-3 w-8 h-8 border-r-2 border-t-2 border-white/20"
+                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
+                                                    transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
                                                 />
-                                                <motion.div
-                                                    className={`absolute bottom-0 right-0 w-16 h-px ${colors.text.replace('text-', 'bg-')}`}
-                                                    animate={{ scaleX: [0, 1, 0], opacity: [0, 1, 0] }}
-                                                    transition={{ duration: 3, repeat: Infinity, delay: 1.5 }}
+                                                <motion.div className="absolute bottom-3 left-3 w-8 h-8 border-l-2 border-b-2 border-white/20"
+                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
+                                                    transition={{ duration: 2, repeat: Infinity, delay: 1 }}
                                                 />
-                                                <motion.div
-                                                    className={`absolute bottom-0 right-0 h-16 w-px ${colors.text.replace('text-', 'bg-')}`}
-                                                    animate={{ scaleY: [0, 1, 0], opacity: [0, 1, 0] }}
-                                                    transition={{ duration: 3, repeat: Infinity, delay: 1.7 }}
+                                                <motion.div className="absolute bottom-3 right-3 w-8 h-8 border-r-2 border-b-2 border-white/20"
+                                                    animate={{ opacity: [0.2, 0.6, 0.2] }}
+                                                    transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
                                                 />
 
-                                                {/* Scanning line effect */}
+                                                {/* Horizontal scanning line */}
                                                 <motion.div
-                                                    className={`absolute left-0 right-0 h-px ${colors.text.replace('text-', 'bg-')} opacity-50`}
-                                                    animate={{ top: ["0%", "100%", "0%"] }}
-                                                    transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                                                    className={`absolute left-0 right-0 h-px ${colors.text.replace('text-', 'bg-')}`}
+                                                    style={{ boxShadow: `0 0 10px ${product.color === 'purple' ? 'rgba(139,92,246,0.8)' : product.color === 'cyan' ? 'rgba(6,182,212,0.8)' : 'rgba(16,185,129,0.8)'}` }}
+                                                    animate={{ top: ["0%", "100%"] }}
+                                                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                                />
+
+                                                {/* Vertical scanning line */}
+                                                <motion.div
+                                                    className={`absolute top-0 bottom-0 w-px ${colors.text.replace('text-', 'bg-')}`}
+                                                    style={{ boxShadow: `0 0 10px ${product.color === 'purple' ? 'rgba(139,92,246,0.8)' : product.color === 'cyan' ? 'rgba(6,182,212,0.8)' : 'rgba(16,185,129,0.8)'}` }}
+                                                    animate={{ left: ["0%", "100%"] }}
+                                                    transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: 1.5 }}
+                                                />
+
+                                                {/* Hover overlay effect */}
+                                                <motion.div
+                                                    className="absolute inset-0 bg-white/0 group-hover/box:bg-white/5 transition-colors duration-500"
                                                 />
                                             </motion.div>
                                         </motion.div>
