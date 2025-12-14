@@ -456,6 +456,16 @@ export function Products() {
                                                         >
                                                             <span className="font-light">Coming Soon</span>
                                                         </button>
+                                                    ) : product.id === 'agency' ? (
+                                                        <a
+                                                            href="https://www.eximia.agency/"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className={`inline-flex items-center gap-2 px-6 py-3 border ${colors.border} ${colors.bg} ${colors.text} hover:bg-white/10 transition-all duration-300 group`}
+                                                        >
+                                                            <span className="font-light">Visitar Website</span>
+                                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                        </a>
                                                     ) : (
                                                         <Link
                                                             to="/"
