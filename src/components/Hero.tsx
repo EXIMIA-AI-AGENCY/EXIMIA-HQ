@@ -30,7 +30,7 @@ export function Hero() {
             muted
             playsInline
             className="w-full h-full object-cover opacity-60"
-            src="https://ik.imagekit.io/lrigu76hy/tailark/dna-video.mp4?updatedAt=1745736251477"
+            src="/dna-video.mp4"
           />
           <div className="absolute inset-0 bg-black/40" /> {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />

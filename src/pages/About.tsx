@@ -8,8 +8,7 @@ import { SEO } from '../components/SEO';
 export function About() {
     const milestones = [
         { year: '2022', title: 'Fundación', description: 'Alan Rodriguez funda EXIMIA en San Juan, Puerto Rico' },
-        { year: '2022', title: 'EXIMIA AGENCY', description: 'Lanzamiento de plataforma de marketing con IA' },
-        { year: '2023', title: 'EXIMIA AI Platform', description: 'Plataforma empresarial de agentes de IA especializados' },
+        { year: '2022', title: 'EXIMIA', description: 'Lanzamiento de plataforma de marketing con IA y agentes inteligentes' },
         { year: '2024', title: 'EXIMIA GOV', description: 'Sistema de análisis de inteligencia gubernamental' },
     ];
 
@@ -134,11 +133,11 @@ export function About() {
                                 </p>
 
                                 <p>
-                                    Desde su apartamento en San Juan, Alan lanzó EXIMIA AGENCY, una plataforma que automatizaba la creación y distribución de contenido a escala. No como una herramienta más, sino como un sistema completo que entendía audiencias, optimizaba campañas, y generaba ROI medible. El éxito fue inmediato.
+                                    Desde su apartamento en San Juan, Alan lanzó EXIMIA, una plataforma que automatizaba la creación y distribución de contenido a escala. No como una herramienta más, sino como un sistema completo que entendía audiencias, optimizaba campañas, y generaba ROI medible. El éxito fue inmediato.
                                 </p>
 
                                 <p>
-                                    El siguiente paso fue natural: si la IA podía revolucionar el marketing, podía transformar cualquier industria. En 2023, nació EXIMIA AI Platform, consolidando todo el conocimiento en una plataforma empresarial donde cualquier organización podía desplegar agentes de IA especializados en minutos.
+                                    EXIMIA evolucionó rápidamente, integrando agentes de IA especializados y capacidades empresariales avanzadas. La plataforma se convirtió en una solución completa donde cualquier organización podía automatizar procesos y desplegar inteligencia artificial en minutos.
                                 </p>
 
                                 <p>

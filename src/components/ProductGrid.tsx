@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Shield, Zap, Layers, ArrowUpRight, TrendingUp, Lock, Sparkles, FileText } from 'lucide-react';
+import { Shield, Zap, ArrowUpRight, TrendingUp, Lock, Sparkles, FileText } from 'lucide-react';
 import { useState } from 'react';
 
 export function ProductGrid() {
@@ -57,7 +57,7 @@ export function ProductGrid() {
     },
     {
       id: 'agency',
-      name: 'EXIMIA AGENCY',
+      name: 'EXIMIA',
       category: 'MARKETING & CRECIMIENTO',
       description: 'Automatización de marketing militar. Contenido generado y distribuido a escala con IA autónoma.',
       features: [
@@ -80,32 +80,7 @@ export function ProductGrid() {
       Icon: Zap,
       url: 'https://eximia.agency',
     },
-    {
-      id: 'platform',
-      name: 'EXIMIA AI PLATFORM',
-      category: 'ENTERPRISE & SAAS',
-      description: 'Fuerza laboral sintética bajo demanda. Agentes de IA especializados desplegables en minutos.',
-      features: [
-        'Biblioteca de 50+ agentes especializados',
-        'API empresarial con SDKs completos',
-        'Escalamiento automático de recursos',
-        'Monitoreo y analytics en tiempo real',
-      ],
-      metrics: {
-        pricing: '$30/mes',
-        agents: '50+',
-        uptime: '99.98%',
-      },
-      stats: [
-        { label: 'Agentes Activos', value: '12.4K', trend: '+234%' },
-        { label: 'Tareas/hora', value: '840K', trend: '+156%' },
-        { label: 'Ahorro Costos', value: '78%', trend: '+12%' },
-      ],
-      color: 'indigo',
-      Icon: Layers,
-      url: 'https://ai.eximia.agency',
-      featured: true,
-    },
+
   ];
 
   return (

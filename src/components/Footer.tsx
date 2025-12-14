@@ -28,11 +28,9 @@ export function Footer() {
                 EXIMIA GOV
               </a>
               <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
-                EXIMIA AGENCY
+                EXIMIA
               </a>
-              <a href="#" className="block text-slate-600 hover:text-cyan-500 text-sm transition-colors">
-                EXIMIA AI PLATFORM
-              </a>
+
             </div>
           </div>
         </div>

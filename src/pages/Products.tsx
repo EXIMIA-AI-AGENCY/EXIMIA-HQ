@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Zap, Layers, ArrowRight, Check, ArrowLeft, FileText } from 'lucide-react';
+import { Shield, Zap, ArrowRight, Check, ArrowLeft, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
@@ -53,7 +53,7 @@ export function Products() {
         },
         {
             id: 'agency',
-            name: 'EXIMIA AGENCY',
+            name: 'EXIMIA',
             tagline: 'Automatización de Marketing con IA',
             description: 'Plataforma de marketing autónoma que genera y distribuye contenido a escala. Campañas optimizadas por IA que se adaptan en tiempo real.',
             features: [
@@ -73,28 +73,7 @@ export function Products() {
             color: 'purple',
             Icon: Zap,
         },
-        {
-            id: 'platform',
-            name: 'EXIMIA AI PLATFORM',
-            tagline: 'Fuerza Laboral Sintética Bajo Demanda',
-            description: 'Plataforma empresarial de agentes de IA especializados. Despliega equipos sintéticos completos en minutos para cualquier tarea.',
-            features: [
-                'Biblioteca de 50+ agentes especializados pre-entrenados',
-                'API empresarial con SDKs completos para todas las plataformas',
-                'Escalamiento automático de recursos según demanda',
-                'Monitoreo y analytics en tiempo real de todos los agentes',
-                'Personalización y entrenamiento de agentes custom',
-                'Integración nativa con herramientas empresariales',
-            ],
-            benefits: [
-                'Ahorra 78% en costos operativos',
-                'Despliega equipos en minutos vs semanas',
-                'Escala infinitamente sin contratar',
-                '99.98% uptime garantizado',
-            ],
-            color: 'indigo',
-            Icon: Layers,
-        },
+
     ];
 
     const colorMap = {
