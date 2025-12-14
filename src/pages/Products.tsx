@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Zap, ArrowRight, Check, ArrowLeft, FileText } from 'lucide-react';
+import { Shield, Brain, ArrowRight, Check, ArrowLeft, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
@@ -27,7 +27,7 @@ export function Products() {
                 'ROI promedio de 5x en 6 meses',
             ],
             color: 'purple',
-            Icon: Zap,
+            Icon: Brain,
         },
         {
             id: 'gov',
