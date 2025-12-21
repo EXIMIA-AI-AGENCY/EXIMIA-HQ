@@ -118,7 +118,7 @@ export function Hero() {
               size="lg"
               className="h-14 rounded-full px-8 text-base bg-white text-black hover:bg-white/90 transition-all duration-300">
               <Link href="/products">
-                <span className="text-nowrap font-medium">Más Información</span>
+                <span className="text-nowrap font-medium">Explorar Productos</span>
               </Link>
             </Button>
           </motion.div>

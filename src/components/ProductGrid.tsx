@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Shield, Brain, ArrowUpRight, TrendingUp, Lock, Sparkles, FileText } from 'lucide-react';
+import { Shield, Brain, ArrowUpRight, Lock, Sparkles, FileText } from 'lucide-react';
 import { useState } from 'react';
 
 export function ProductGrid() {
@@ -15,16 +15,7 @@ export function ProductGrid() {
         'Desarrollo de software a medida',
         'Chatbots inteligentes',
       ],
-      metrics: {
-        clients: '150+',
-        projects: '300+',
-        efficiency: '+60%',
-      },
-      stats: [
-        { label: 'Proyectos Completados', value: '300+', trend: '+45%' },
-        { label: 'Ahorro de Costos', value: '60%', trend: '+25%' },
-        { label: 'ROI Promedio', value: '5x', trend: '+80%' },
-      ],
+
       color: 'purple',
       Icon: Brain,
       url: 'https://www.eximia.agency/',
@@ -40,16 +31,7 @@ export function ProductGrid() {
         'Cumplimiento normativo total',
         'Infraestructura air-gapped',
       ],
-      metrics: {
-        uptime: '99.99%',
-        classification: 'SECRET',
-        deployments: '47',
-      },
-      stats: [
-        { label: 'Consultas/día', value: '2.4M', trend: '+12%' },
-        { label: 'Tiempo Respuesta', value: '8ms', trend: '-15%' },
-        { label: 'Precisión', value: '99.7%', trend: '+2%' },
-      ],
+
       color: 'cyan',
       Icon: Shield,
       url: 'https://eximiagov.com',
@@ -65,16 +47,7 @@ export function ProductGrid() {
         'IA Documental (GPT-5)',
         'Búsqueda Global Unificada',
       ],
-      metrics: {
-        security: 'AES-256',
-        compliance: 'SOC2',
-        automation: '85%',
-      },
-      stats: [
-        { label: 'Tiempo Ahorrado', value: '40%', trend: '+40%' },
-        { label: 'ROI Estimado', value: '3.5x', trend: '+15%' },
-        { label: 'Errores', value: '0%', trend: '-100%' },
-      ],
+
       color: 'emerald',
       Icon: FileText,
       url: '#',
@@ -242,32 +215,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
           <p className="text-slate-400 leading-relaxed text-sm">{product.description}</p>
         </div>
 
-        {/* Animated Stats */}
-        <motion.div
-          className="mb-6 space-y-3"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          {product.stats.map((stat: any, i: number) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.15 + i * 0.1 }}
-              className="flex items-center justify-between p-3 bg-slate-800/30 rounded border border-slate-800 group-hover:border-slate-700 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <TrendingUp className={`w-3 h-3 ${colors.text}`} />
-                <span className="text-xs text-slate-500">{stat.label}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-white font-mono">{stat.value}</span>
-                <span className="text-xs text-emerald-500">{stat.trend}</span>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+
 
         {/* Features */}
         <div className="mb-6 flex-1">
@@ -293,20 +241,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
           </div>
         </div>
 
-        {/* Metrics Bar */}
-        <div className="flex items-center gap-4 pb-6 mb-6 border-b border-slate-800">
-          {Object.entries(product.metrics).map(([key, value], i) => (
-            <motion.div
-              key={key}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.15 + i * 0.1 }}
-            >
-              <div className="text-sm text-white font-mono">{value}</div>
-              <div className="text-xs text-slate-600 capitalize">{key}</div>
-            </motion.div>
-          ))}
-        </div>
+
 
         {/* CTA */}
         {product.comingSoon ? (
