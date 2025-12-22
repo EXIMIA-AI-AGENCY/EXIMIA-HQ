@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import { Shield, Brain, ArrowUpRight, Lock, Sparkles, FileText } from 'lucide-react';
+import { Shield, Brain, ArrowUpRight, Lock, Sparkles, FileText, Bot } from 'lucide-react';
 import { useState } from 'react';
 
 export function ProductGrid() {
@@ -53,7 +53,23 @@ export function ProductGrid() {
       url: '#',
       comingSoon: true,
     },
+    {
+      id: 'baios',
+      name: 'EXIMIA BAIOS',
+      category: 'BUSINESS OS & AGENTS',
+      description: 'Sistema Operativo para tu negocio. Un espejo digital donde agentes de IA trabajan side-by-side con tus empleados.',
+      features: [
+        'Espejo Digital del Negocio',
+        'Agentes Side-by-Side',
+        'Automatización Administrativa',
+        'Mismas Herramientas que Humanos',
+      ],
 
+      color: 'indigo',
+      Icon: Bot,
+      url: '#',
+      comingSoon: true,
+    },
   ];
 
   return (

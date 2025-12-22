@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Brain, ArrowRight, Check, ArrowLeft, FileText } from 'lucide-react';
+import { Shield, Brain, ArrowRight, Check, ArrowLeft, FileText, Bot } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 
@@ -72,6 +72,28 @@ export function Products() {
             ],
             color: 'emerald',
             Icon: FileText,
+        },
+        {
+            id: 'baios',
+            name: 'EXIMIA BAIOS',
+            tagline: 'Tu Negocio como Sistema Operativo',
+            description: 'Sistema Operativo Empresarial que actúa como un espejo digital de tu negocio. Agentes de IA trabajan codo a codo con tus empleados utilizando sus mismas herramientas digitales para realizar tareas administrativas.',
+            features: [
+                'Espejo Digital del Negocio',
+                'Agentes Side-by-Side',
+                'Automatización Administrativa',
+                'Integración Total de Herramientas',
+                'Colaboración Humano-IA',
+                'Dashboard de Operaciones en Tiempo Real',
+            ],
+            benefits: [
+                'Colaboración Humano-IA fluida',
+                'Ejecución autónoma de tareas',
+                'Visibilidad total de operaciones',
+                'Escalabilidad infinita',
+            ],
+            color: 'indigo',
+            Icon: Bot,
         },
 
     ];
@@ -449,7 +471,7 @@ export function Products() {
                                                     viewport={{ once: true }}
                                                     transition={{ delay: index * 0.2 + 0.8 }}
                                                 >
-                                                    {product.id === 'accounting' ? (
+                                                    {(product.id === 'accounting' || product.id === 'baios') ? (
                                                         <button
                                                             disabled
                                                             className={`inline-flex items-center gap-2 px-6 py-3 border ${colors.border} ${colors.bg} ${colors.text} opacity-70 cursor-not-allowed`}
